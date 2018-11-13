@@ -1,0 +1,168 @@
+package tutorialPag;
+import java.util.Scanner;
+
+public class StoreAssignment1 {
+	        // Gaming store
+			// Gift cards/game cards
+			// gaming chairs
+			// gaming headphones
+			// gaming keyboards
+			// gaming mouses
+			// gaming computers
+			// gaming mousepad's
+			// game discs
+			// consoles
+			// Apparels/toys
+	  		//
+	static double price = 0; //Total price of sale
+	static final double TAX = 0.05; //The tax for the price
+	
+	static int totalQty = 0; //Accumulator - counter
+	static int GiftcardQty = 0; // Giftcard qty
+	static int GchairsQty = 0; // Gchairs qty
+	static int GheadphonesQty = 0; // Gheadphones qty
+	static int GkeyboardsQty = 0; // Gkeyboards qty
+	static int GmousesQty = 0; // Gmouses qty
+	static int GComputerQty = 0; // GComputer qty
+	static int GmousepadsQty = 0; // Gmousepads qty
+	static int GdiscsQty = 0; // Gdiscs qty
+	static int ConsolesQty = 0; // Consoles qty
+	static int ApparelsandtoysQty = 0; // Apparelsandtoys qty
+	
+	public static void menu() {
+		Scanner scanWords = new Scanner(System.in); // Scanner object to take in Words
+		Scanner scanNums = new Scanner(System.in); // Scanner object that takes in Nums
+		
+		double GiftcardsPrice = 50; // Price of Gift cards
+		double GamingchairsPrice = 120; // Price of Gaming chairs
+		double GamingheadphonesPrice = 80; // Price of Gaming headphones
+		double GamingkeyboardsPrice = 100; // Price of Gaming keyboards
+		double GamingmousesPrice = 70; // Price of Gaming mouses
+		double GamingComputerPrice = 700; // Price of Gaming Computer
+		double GamingmousepadsPrice = 30; // Price of Gaming mouse pads
+		double GamediscsPrice = 80; // Price of Game discs
+		double ConsolesPrice = 400; // Price of Consoles
+		double ApparelsandtoysPrice = 20; // Price of Apparels and toys
+		int itemNum; // It calls the variable itemNum
+
+	
+		
+		System.out.print("What is your name?: " ); // Prints out what is your name
+		String name = scanWords.nextLine(); // To declare name variable and store input
+		
+		System.out.println("\nWelcome " + name + " to Marc's Gaming store!" ); // Prints out welcome and the name that you put to Marcs Gaming store
+		//menu items
+		do { // It evaluates the expression at the bottom
+		System.out.println("\nWhat would you like to buy?\n" // It prompts user the user to pick what they buy
+				 + "0. Exit\n"
+				 + "1. Gift cards Price: $50\n"
+				 + "2. Gaming chairs Price: $120\n"
+				 + "3. Gaming headphones Price: $80\n"
+				 + "4. Gaming keyboards Price: $100\n"
+				 + "5. Gaming mouses Price: $80\n"
+				 + "6. Gaming computers Price: $700\n"
+				 + "7. Gaming mousepad's Price: $30\n"
+				 + "8. Game discs Price: $80\n"
+				 + "9. Consoles Price: $400\n"
+				 + "10. Apparels/toys Price: $20");
+        itemNum = scanNums.nextInt(); // It calls the variable itemNum which has a scanNu.nextInt as its value
+ 
+		System.out.println("How many do you want? "); // Prints out How many do you want?
+		
+		int qty = scanNums.nextInt(); //It calls the variable qty which has scanNums.nextInt as the value
+		totalQty += qty; // Total qty
+		if(itemNum == 0) { // If the user wants to exit the option
+			
+		
+		}
+		else if(itemNum == 1) { // The if statement is if the user picks option 1
+			price += calcCost(GiftcardsPrice, qty); // The price of the gift cards then multiplied if its more than amount of the item
+			GiftcardQty += qty; // Total Giftcard qty
+		}
+		else if(itemNum == 2) { // The else if statement is here if the user picks option 2
+			price += calcCost(GamingchairsPrice, qty); // The price of the Gaming chairs then multiplied if its more than amount of the item
+			GchairsQty += qty; // Total Gchairs qty
+		}
+		else if(itemNum == 3) { // The else if statement is here if the user picks option 3
+			price += calcCost(GamingheadphonesPrice, qty); // The price of the Gaming headphones then multiplied if its more than amount of the item
+			GheadphonesQty += qty; // Total Gheadphones qty
+		}
+		else if(itemNum == 4) { // The else if statement is here if the user picks option 4
+			price += calcCost(GamingkeyboardsPrice, qty); // The price of the Gaming keyboards then multiplied if its more than amount of the item
+			GkeyboardsQty += qty; // Total Gkeyboards qty
+		}
+		else if(itemNum == 5) { // The else if statement is here if the user picks option 5
+			price += calcCost(GamingmousesPrice, qty); // The price of the Gaming mouses then multiplied if its more than amount of the item
+			GmousesQty += qty; // Total Gmouses qty
+		}
+		else if(itemNum == 6) { // The else if statement is here if the user picks option 6
+			price += calcCost(GamingComputerPrice, qty); // The price of the gaming computers then multiplied if its more than amount of the item
+			GComputerQty += qty; // Total GComputer qty
+		}
+		else if(itemNum == 7) { // The else if statement is here if the user picks option 7
+			price += calcCost(GamingmousepadsPrice, qty); // The price of the Gaming mouse pads then multiplied if its more than amount of the item
+			GmousepadsQty += qty; // Total Gmousepads qty
+		}
+		else if(itemNum == 8) { // The else if statement is here if the user picks option 8
+			price += calcCost(GamediscsPrice, qty); // The price of the Game discs pads then multiplied if its more than amount of the item
+			GdiscsQty += qty; // Total Gdiscs qty
+		}
+		else if(itemNum == 9) { // The else if statement is here if the user picks option 9
+			price += calcCost(ConsolesPrice, qty); // The price of the Consoles then multiplied if its more than amount of the item
+			ConsolesQty += qty; // Total Consoles qty
+		}
+		else if(itemNum == 10) { // The else if statement is here if the user picks option 10
+			price += calcCost(ApparelsandtoysPrice, qty); // The price of the Apparels/Toys then multiplied if its more than amount of the item
+			ApparelsandtoysQty += qty; // Total Apparelsandtoys qty
+			
+		}
+		else { // THis else block is here if user does not meet all else if options
+			System.out.println("Sorry there is no option for that"); // Prints out Sorry there is no option for that			
+		}
+
+    } while(itemNum != 0);//end of do/while	
+		
+	printSummary(); // Calls printSummary variable
+	}//end main
+	
+	public static double calcCost(double itemPrice, int qty) { // A public static double that calls the variable calcCost
+		return itemPrice * qty; // It returns the item price
+	}//end calcCost
+	
+	public static double calcTax(double TAX, double price) { // The public static double which calculates 
+		return TAX * price; // It returns the TAX * price
+	}//end calcTax
+	
+	public static void printSummary() {
+		System.out.println("Total item sold " + totalQty); // Prints the Total item sold " + totalQty
+		System.out.println("Total Giftcards sold " + GiftcardQty); // Prints the Total Giftcards sold " + GiftcardQty
+		System.out.println("Total Gamingchairs sold " + GchairsQty); // Pritns the Total Gamingchairs sold " + GchairsQty
+		System.out.println("Total Gamingheadphones sold " + GheadphonesQty); // Prints the Total Gamingheadphones sold " + GheadphonesQty
+		System.out.println("Total Gamingkeyboards solid " + GkeyboardsQty); // Prints the Total Gamingkeyboards solid " + GkeyboardsQty
+		System.out.println("Total Gamingmouses sold " + GmousesQty); // Prints the Total Gamingmouses sold " + GmousesQty
+		System.out.println("Total GamingComputer sold " + GComputerQty); // Prints the GamingComputer sold " + GComputerQty
+		System.out.println("Total Gamingmousepads sold " + GmousepadsQty); // Pritns the Total Gamingmousepads sold " + GmousepadsQty
+		System.out.println("Total Gamediscs sold " + GdiscsQty); // Prints the Total Gamediscs sold " + GdiscsQty
+		System.out.println("Total Consoles sold " + ConsolesQty); // Prints the Total Consoles sold " + ConsolesQty
+		System.out.println("Total Apparelsandtoys sold " + ApparelsandtoysQty); // Prints the Total Apparelsandtoys sold " + ApparelsandtoysQty
+		System.out.println("Your total is $" + price ); // Prints out Your total is $" + price
+		
+		// System.out.println("Tax is; " + calcTax(TAX,price));
+		System.out.printf("Tax is: %.2f \n", calcTax(TAX,price));
+		
+		
+		
+		System.out.println("Your total is " + price + "dollars"); // It tells the user total price
+		System.out.println("Tax is: " + calcTax(TAX,price)); // It prints the price with the tax
+		
+		double totalPrice  = calcTax(TAX,price) + price; // The price is multiplied with tax plus is added again with tax
+		System.out.printf("Total with tax is: %.2f \n", totalPrice); // Prints the Total with tax is: %.2f \n", totalPrice
+
+		System.out.println("Thank you for buying the product, come again anytime"); // It tells the user that they are done buying things in the store.
+	}//end printSum
+	
+	public static void main(String[] args) {
+		menu(); // Calls the menu
+	}//end main
+
+}
