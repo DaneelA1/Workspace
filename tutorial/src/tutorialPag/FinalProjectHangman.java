@@ -6,10 +6,10 @@ public class FinalProjectHangman {
 	private static String[] words = {"terminator", "banana", "computer", "pig", "bus", "water" }; // The words that are picked for the program for the user to guess
 	private static String word = words[(int) (Math.random() * words.length)];
 	private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
-	private static int count = 0;
+	private static int count = 0; 
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); //
 
 		while (count < 7 && asterisk.contains("*")) {
 			System.out.println("Guess any letter in the word");
