@@ -29,6 +29,9 @@ public class ArrayListExample1 {
 			System.out.println(listOfInts.get(i));
 		}
 		
+		System.out.println(listOfInts.indexOf(98));
+		System.out.println(listOfInts.indexOf(99));
+		
 	}
 
 }
