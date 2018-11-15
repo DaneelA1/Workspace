@@ -20,7 +20,7 @@ public class DataStructureAssignment6 {
 		artists.add("Lil Uzi Vert");
 		
 		int choice = 0;
-		
+		boolean flag = true;
 		do {
 		for(int i = 0; i < allSongs.size(); i++) {
 			System.out.println(i + " " + allSongs.get(i)
@@ -53,28 +53,27 @@ public class DataStructureAssignment6 {
 			break;
 			
 		case 3:
-			System.out.println("enter song # to add to party playlist:");
+			System.out.println("enter song // to add to party playlist:");
 			partyPlaylist.add(allSongs.get(input.nextInt()));
 			break;
 			
 		case 4:
 			System.out.println("BYE");
+			flag = false;
 			break;
 			
 		default:
 			System.out.println("invalid option");
 			
 		}//end switch
-			}while(choice != 4);
-		for(int i = 0; i < allSongs.size(); i++) { // Print all songs
-			System.out.println(i + " " + allSongs.get(i)
-							  + " " + artists.get(i));
+		
+		}while(flag);
 			
 		}//end for
 		
-	}
+	}//end class
 
-}
+
 
 
 
