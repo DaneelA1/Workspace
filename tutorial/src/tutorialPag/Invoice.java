@@ -7,6 +7,7 @@ public class Invoice {
 	double amountDue = 0;
 	
 	
+	
 	public Invoice(Customer theCustomer) {
 		this.theCustomer = theCustomer;
 	}
@@ -17,7 +18,9 @@ public class Invoice {
 	}
 	
 	public void  printInvoice() {
-		
+		for(int i = 0; i < LineItem L1.size(); i++) {
+			System.out.println(LineItem.get(i) + "Total $%.2f" + .getTheProduct().getPrice()* item.get(i).getQty);
+		}
 		
 	}
 	
