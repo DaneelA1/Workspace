@@ -12,21 +12,39 @@ public class Invoice {
 		this.theCustomer = theCustomer;
 	}
 	
-	public void addToOrder(Product theproduct, int qty ) {
-		LineItem L1 = new LineItem(theproduct, qty);
-		Item.add(L1);
+	public void addToOrder(Product theProduct, int qty ) {
+		Item.add(new LineItem(theProduct, qty));
+		
 	}
 	
 	public void  printInvoice() {
-		for(int i = 0; i < LineItem L1.size(); i++) {
-			System.out.println(LineItem.get(i) + "Total $%.2f" + .getTheProduct().getPrice()* item.get(i).getQty);
+		for(int i = 0; i < Item.size(); i++) {
+			System.out.printf(Item.get(i) + "Total $%.2f" , (Item.get(i).getTheProduct().getPrice()* Item.get(i).getQty()));
+			System.out.println();
+		}
+		
+		if(amountDue() <= theCustomer.getEvilFunds()) {
+			System.out.println("Order has been approved!");
+			
+		}
+		else {
+			double fundShortage = theCustomer.getEvilFunds() - amountDue();
+			fundShortage = fundShortage * -1;
+			System.out.printf("You can't afford that item. You are short by $%.2f", fundShortage);
+			System.out.println();
 		}
 		
 	}
 	
 	public boolean canAfford(Customer theCustomer) {
-		return true;
+		if(amountDue() <= theCustomer.getEvilFunds()) {
+			return true;
+			
+		}
+		else {	
+			return false;
 		
+		}
 	}
 	
 	public Customer getTheCustomer() {
@@ -34,10 +52,13 @@ public class Invoice {
 	}
 	
 	public double amountDue() {
-		return amountDue;
+		double totalPrice = 0;
+		for(int i = 0; i < Item.size(); i++) {
+			totalPrice = totalPrice + Item.get(i).getTheProduct().getPrice()* Item.get(i).getQty();
+		}
+		return totalPrice; // Returns the total amount due for this order
 		
 	}
 	
-
 
 }

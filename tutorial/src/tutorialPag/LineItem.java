@@ -14,6 +14,10 @@ public class LineItem {
 		this.qty = qty;
 	}
 	
+	public int getQty() {
+		return qty;
+	}
+	
 	public Product getTheProduct() {
 		return theProduct;
 	}
