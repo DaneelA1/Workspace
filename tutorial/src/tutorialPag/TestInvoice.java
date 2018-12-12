@@ -2,6 +2,10 @@ package tutorialPag;
 
 public class TestInvoice {
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Invoice run 1
 		
@@ -48,6 +52,11 @@ public class TestInvoice {
 		runInvoice(c3,in3); //runs invoice
 		
 	}
+	/**
+	 * 
+	 * @param c
+	 * @param i
+	 */
 	public static void runInvoice(Customer c, Invoice i) {
 		i.printInvoice();
 
