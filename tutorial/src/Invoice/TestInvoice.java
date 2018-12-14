@@ -1,17 +1,30 @@
-package tutorialPag;
+package Invoice;
 
 public class TestInvoice {
-
+	
 	/**
-	 * 
-	 * @param args
+	 * this will run the invoice method
+	 * @param c - this is the customer
+	 * @param i - this is the customer's invoice
 	 */
+	public static void runInvoice(Customer c, Invoice i) { // This will print out the customer's invoice
+		i.printInvoice(); // This runs the printInvoice (it is from the Invoice method) 
+
+		if(c.getFunds()- i.amountDue() < 0) { // If customer's funds is less than the total price of their order this continue
+			System.out.println("Evil villian credit union to the rescue!!");	
+			c.addFunds(i.amountDue() - c.getFunds()); // This adds the money difference to the customer's funds, so that they can have their order approved 
+			System.out.println("New funds total: " + c.getFunds()); // This will print out the new amount of funds that they have
+		}
+		
+		i.printInvoice(); // This runs the printInvoice again so it could show that the customer can now buy whatever they ordered
+	}//end runInvoice
+
 	public static void main(String[] args) {
 		// Invoice run 1
 		
-		Customer c = new Customer("island", "Dr evil", 1230.0);
-		Invoice in = new Invoice(c);
-		in.addToOrder(new Product("flame Thower",123.80), 3);
+		Customer c = new Customer("island", "Dr evil", 1230.0); // This will create a new customer using the provided info
+		Invoice in = new Invoice(c); // This creates a new invoice for the customer
+		in.addToOrder(new Product("flame Thower",123.80), 3); // This adds the product to the customer's order
 		in.addToOrder(new Product("sharks", 105.2),2);
 		in.addToOrder(new Product("lasers",50.5),20);
 		
@@ -51,26 +64,8 @@ public class TestInvoice {
 		
 		runInvoice(c3,in3); //runs invoice
 		
-	}
-	/**
-	 * 
-	 * @param c
-	 * @param i
-	 */
-	public static void runInvoice(Customer c, Invoice i) {
-		i.printInvoice();
-
-		if(c.getEvilFunds()- i.amountDue() < 0) {
-			System.out.println("Evil villian credit union to the rescue!!");	
-			c.addFunds(i.amountDue() - c.getEvilFunds());
-			System.out.println("New funds total: " + c.getEvilFunds());
-			
-			i.printInvoice();
-		}
-		
-		
-	}//end runInvoice
+	}//end main
 	
-}//end TestInvoice
+}//end class TestInvoice
 
 
