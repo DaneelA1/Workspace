@@ -25,25 +25,25 @@ public class DataStructuresFinalProjectHangman {
 		}
 		input.close();
 	}
-	public static void hang(String guess) {
-		String newletters = "";
-		for (int i = 0; i < word .length(); i++) {
-			if (word.charAt(i) == guess.charAt(0)) {
-				newletters += guess.charAt(0);
-			} else if (letters.charAt(i) != '*') {
-				newletters += word.charAt(i);
-			} else {
-				newletters += "*";
+	public static void hang(String guess) { // A public static void hang with a parameters called String guess
+		String newletters = ""; // A String called new letters which equals ""
+		for (int i = 0; i < word.length(); i++) { // It checks the word length
+			if (word.charAt(i) == guess.charAt(0)) { // An if statement that says if the word is equal to the guess
+				newletters += guess.charAt(0); // The newltters are added and being equal to the guess
+			} else if (letters.charAt(i) != '*') { // An else if statement if the letters does equal to the value
+				newletters += word.charAt(i); // The newletters is be added and being equal to the word
+			} else { // This else statement is here if the if and else if statements are not met
+				newletters += "*"; // The newletters are being added to or equal to the value
 			}
 		}
-		if (letters.equals(newletters)) {
-			AmtGuesses++;
-			hangmanDrawing();
-		} else {
-			letters = newletters;
+		if (letters.equals(newletters)) { // The if statement is here if the letters of the player equals to the newletters
+			AmtGuesses++; // The amountguesses are being added
+			hangmanDrawing(); // This creates the hangman drawing when your guessing, the more you guess wrong, the more the drawiing will grow
+		} else { // The else statement is here if the if statement is not met
+			letters = newletters; // the letters which equals the newletters
 		}
-		if (letters.equals(word)) {
-			System.out.println("Congratulations you won! The word was: " + word);
+		if (letters.equals(word)) { // When all the letters that were guessed were correct it forms the word
+			System.out.println("Congratulations you won! The word was: " + word); // Prints out Congratulations you won!, and what the word was
 		}
 	}
 	public static void hangmanDrawing() {
